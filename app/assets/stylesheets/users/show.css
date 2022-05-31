@@ -1,0 +1,38 @@
+.grid-username-container {
+  margin: auto;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.username-header {
+  align-self: center;
+  font-size: 3rem;
+}
+
+.number-of-posts {
+  align-self: end;
+}
+
+.bio-container {
+  width: 100%;
+}
+
+.comment-like-text {
+  font-size: 10px;
+}
+
+.see-more-post-container {
+  display: grid;
+  width: 90%;
+}
+
+.see-all-posts-button {
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 20px;
+  width: 30%;
+  border: 1px black solid;
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+}
