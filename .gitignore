@@ -57,3 +57,6 @@ build-iPhoneSimulator/
 
 # Ignore Node Modules
 node_modules/ 
+
+# Ignore Development logs
+log/
