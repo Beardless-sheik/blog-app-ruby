@@ -47,7 +47,7 @@ bundle install
 ### Test
 
 ```sh
-rspec
+rspec spec --format documentation
 ```
 
 ## Author
