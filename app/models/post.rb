@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy, foreign_key: 'PostId_id'
   has_many :likes, dependent: :destroy, foreign_key: 'PostId_id'
-  
+
   after_save do
     author.increment!(:Posts_Counter)
   end
