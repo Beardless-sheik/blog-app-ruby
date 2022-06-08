@@ -1,21 +1,20 @@
 <section class="container my-4 px-0">
       <div class="border post-container p-4">
         <div class="post-comment-container">
-          <p class="h4">Post <%= params[:id] %> </p>
-          <p class="comment-like-text text-end"> Comments: x, Likes: y </p>
+          <p class="h4"> <%= @post.Title %> by <%= @post.author.Name %> </p>
+          <p class="comment-like-text text-end"> Comments: <%= @post.Comments_Counter %>, Likes: <%= @post.Likes_Counter %> </p>
         </div>
         <p>
-        Morbi ornare consequat leo quis porta. Nam lobortis, elit ut mattis molestie, lectus quam sagittis urna, 
-        et aliquet sapien neque eu sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Duis laoreet vestibulum tincidunt. Nullam eu iaculis est. Sed suscipit feugiat nisl, sed iaculis sem elementum non. 
-        Integer laoreet massa sit amet nulla varius consequat. Nam sed purus at mauris accumsan consectetur. 
+          <%= @post.Text %> 
         </p>
         <div class="border comment-container p-2">
-          <p> Username: Comment 1 </p>
-          <p> Username: Comment 2 </p>
-          <p> Username: Comment 3 </p>
-          <p> Username: Comment 4 </p>
-          <p> Username: Comment 5 </p>
+          <% if @post.comments.blank? %>
+              <p class="text-center"> No comments on this post </p>
+          <% else %>
+             <% @post.comments.each do |comment| %>
+                <p> <%= comment.author.Name %> : <%= comment.text %></p>
+             <% end %>
+          <% end %>
         </div>
       </div>
     </section> 

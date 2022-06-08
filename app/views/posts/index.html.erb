@@ -11,57 +11,40 @@
         </div>
         <div class="col col-9 border">
           <div class="grid-username-container">
-            <p class="username-header text-center"> UserName </p>
-            <p class="number-of-posts"> Number of Posts: x </p>
+            <p class="username-header text-center"> <%= @user.Name %> </p>
+            <p class="number-of-posts"> Number of Posts: <%= @user.Posts_Counter%> </p>
           </div>
         </div>
         </div>
     </section>
 
-    <section class="container my-4 px-0">
-      <div class="border post-container p-4">
-        <p>Post #1 </p>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum consequat pretium. 
-        Fusce ultrices in nisi vel luctus. Suspendisse tortor quam, vestibulum at auctor sed, 
-        ultrices in lorem. Nullam congue felis id fermentum rutrum. Lorem ipsum dolor sit amet, 
-        </p>
-        <p class="comment-like-text text-end"> Comments: x, Likes: y </p>
-        <div class="border comment-container p-2">
-          <p> Username: Comment 1 </p>
-          <p> Username: Comment 2 </p>
-          <p> Username: Comment 3 </p>
-          <p> Username: Comment 4 </p>
-          <p> Username: Comment 5 </p>
-        </div>
-      </div>
-    </section>
+    <% if @posts.blank? %>
+        <p class="text-center">There are not any posts currently in the system for this user.</p>
+    <% else %>
+      <% @posts.each do |post| %>
+        <section class="container my-4 px-0">
+          <div class="border post-container p-4">
+            <p> <%= link_to post.Title, {:action => 'show', :id => post.id} %> </p>
+            <p>
+              <%= post.Text %> 
+            </p>
+            <p class="comment-like-text text-end"> Comments: <%= post.Comments_Counter %>, Likes: <%= post.Likes_Counter %> </p>
+            <div class="border comment-container p-2">
+              <% if post.five_recent_comments.blank? %>
+                <p> No comments on this post </p>
+              <% else %>
+                <% post.five_recent_comments.each do |comment| %>
+                  <p> <%= comment.author.Name %> : <%= comment.text %></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </section>
+      <% end %>
+    <% end %>
 
-    <section class="container my-4 px-0">
-      <div class="border post-container p-4">
-        <p>Post #2  </p>
-        <p>
-        Morbi ornare consequat leo quis porta. Nam lobortis, elit ut mattis molestie, lectus quam sagittis urna, 
-        et aliquet sapien neque eu sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Duis laoreet vestibulum tincidunt. Nullam eu iaculis est. Sed suscipit feugiat nisl, sed iaculis sem elementum non. 
-        Integer laoreet massa sit amet nulla varius consequat. Nam sed purus at mauris accumsan consectetur. 
-        </p>
-        <p class="comment-like-text text-end"> Comments: x, Likes: y </p>
-        <div class="border comment-container p-2">
-          <p> Username: Comment 1 </p>
-          <p> Username: Comment 2 </p>
-          <p> Username: Comment 3 </p>
-          <p> Username: Comment 4 </p>
-          <p> Username: Comment 5 </p>
-        </div>
-      </div>
-    </section>
-
-     <div class="container see-more-post-container my-2">
+    <div class="container see-more-post-container my-2">
       <button type="button"  class="see-all-posts-button btn btn-lg"> Pagination </button>
     </div>
-
-
-
   </main>
 </body>

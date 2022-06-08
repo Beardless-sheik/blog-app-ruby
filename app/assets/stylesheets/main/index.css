@@ -1,0 +1,14 @@
+.username-text-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.user-name-text {
+  margin: auto 20px;
+  width: 60%;
+  font-size: 35px;
+}
+
+.posts-counter-text {
+  margin: 40% 20px 20px;
+}

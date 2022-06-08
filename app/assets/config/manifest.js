@@ -4,3 +4,4 @@
 // = link application.css
 // = link users/show.css
 // = link posts/show.css
+// = link main/index.css
