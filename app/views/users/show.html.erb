@@ -29,19 +29,23 @@
     <% else %>
       <% @user.three_recent_posts.each do |post| %>
         <section class="container my-4 px-0">
-          <div class="border post-container p-4">
-            <p> <%= post.Title %> </p>
-            <p>
-              <%= post.Text %>
-            </p>
-            <p class="comment-like-text text-end"> Comments: <%= post.Comments_Counter %>, Likes: <%= post.Likes_Counter %> </p>
-          </div>
+          <a href="<%= @user.id %>/posts/<%= post.id %>">
+            <div class="border post-container p-4">
+              <p> <%= post.Title %> </p>
+              <p>
+                <%= post.Text %>
+              </p>
+              <p class="comment-like-text text-end"> Comments: <%= post.Comments_Counter %>, Likes: <%= post.Likes_Counter %> </p>
+            </div>
+          </a>
         </section>
       <% end %>
     <% end %>
 
     <div class="container see-more-post-container my-2">
-      <button type="button"  class="see-all-posts-button btn btn-lg"> See all posts </button>
+      <a href="<%= @user.id %>/posts" class="see-all-posts-button">
+        <button type="button"  class="btn btn-lg"> See all posts </button>\
+      </a>
     </div>
   </main>
 </body>
