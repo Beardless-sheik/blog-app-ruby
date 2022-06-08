@@ -11,8 +11,8 @@
         </div>
         <div class="col col-9 border">
           <div class="grid-username-container">
-            <p class="username-header text-center"> UserName </p>
-            <p class="number-of-posts"> Number of Posts: x </p>
+            <p class="username-header text-center"> <%= @user.Name %> </p>
+            <p class="number-of-posts"> Number of Posts: <%= @user.Posts_Counter %> </p>
           </div>
         </div>
         </div>
@@ -20,50 +20,25 @@
       <section class="container my-4 px-0">
         <div class="border bio-container p-4">
         <p> Bio </p>
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum consequat pretium. 
-        Fusce ultrices in nisi vel luctus. Suspendisse tortor quam, vestibulum at auctor sed, ultrices in lorem.
-         Nullam congue felis id fermentum rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-         Etiam sit amet magna nec justo varius viverra. Aenean in odio vel est sodales tempus. 
-         Aliquam hendrerit lacus quis commodo viverra. Proin feugiat, urna ut elementum egestas, diam sem maximus tellus, 
-         et sagittis tortor libero et sapien.</p>
+        <p> <%= @user.Bio %></p>
         </div>
     </section>
 
-    <section class="container my-4 px-0">
-      <div class="border post-container p-4">
-        <p>Post #1 </p>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum consequat pretium. 
-        Fusce ultrices in nisi vel luctus. Suspendisse tortor quam, vestibulum at auctor sed, 
-        ultrices in lorem. Nullam congue felis id fermentum rutrum. Lorem ipsum dolor sit amet, 
-        </p>
-        <p class="comment-like-text text-end"> Comments: x, Likes: y </p>
-      </div>
-    </section>
-
-    <section class="container my-4 px-0">
-      <div class="border post-container p-4">
-        <p>Post #2 </p>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum consequat pretium. 
-        Fusce ultrices in nisi vel luctus. Suspendisse tortor quam, vestibulum at auctor sed, 
-        ultrices in lorem. Nullam congue felis id fermentum rutrum. Lorem ipsum dolor sit amet, 
-        </p>
-        <p class="comment-like-text text-end"> Comments: x, Likes: y </p>
-      </div>
-    </section>
-
-    <section class="container my-4 px-0">
-      <div class="border post-container p-4">
-        <p>Post #3 </p>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras interdum consequat pretium. 
-        Fusce ultrices in nisi vel luctus. Suspendisse tortor quam, vestibulum at auctor sed, 
-        ultrices in lorem. Nullam congue felis id fermentum rutrum. Lorem ipsum dolor sit amet, 
-        </p>
-        <p class="comment-like-text text-end"> Comments: x, Likes: y </p>
-      </div>
-    </section>
+    <% if @user.three_recent_posts.blank? %>
+        <p>There are not any posts currently in the system for this user.</p>
+    <% else %>
+      <% @user.three_recent_posts.each do |post| %>
+        <section class="container my-4 px-0">
+          <div class="border post-container p-4">
+            <p> <%= post.Title %> </p>
+            <p>
+              <%= post.Text %>
+            </p>
+            <p class="comment-like-text text-end"> Comments: <%= post.Comments_Counter %>, Likes: <%= post.Likes_Counter %> </p>
+          </div>
+        </section>
+      <% end %>
+    <% end %>
 
     <div class="container see-more-post-container my-2">
       <button type="button"  class="see-all-posts-button btn btn-lg"> See all posts </button>
