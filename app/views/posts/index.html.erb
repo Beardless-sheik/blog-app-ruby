@@ -18,13 +18,14 @@
         </div>
     </section>
 
+    <button type="button" class="btn btn-primary mx-auto d-block my-2"> <%= link_to "Create Post", controller: "posts", action: "new" %> </button>
     <% if @posts.blank? %>
         <p class="text-center">There are not any posts currently in the system for this user.</p>
     <% else %>
       <% @posts.each do |post| %>
         <section class="container my-4 px-0">
           <div class="border post-container p-4">
-            <p> <%= link_to post.Title, {:action => 'show', :id => post.id} %> </p>
+            <p> <%= link_to post.Title, {:action => 'show', :post_id => post.id} %> </p>
             <p>
               <%= post.Text %> 
             </p>

@@ -3,6 +3,9 @@
         <div class="post-comment-container">
           <p class="h4"> <%= @post.Title %> by <%= @post.author.Name %> </p>
           <p class="comment-like-text text-end"> Comments: <%= @post.Comments_Counter %>, Likes: <%= @post.Likes_Counter %> </p>
+          <%= form_with model: @like, url: likes_path do |f|%>
+            <%= f.submit "Like This Post" , data: { disable_with: "Loading..."} , class: "likes-btn" %>
+          <%end%>
         </div>
         <p>
           <%= @post.Text %> 
@@ -12,8 +15,19 @@
               <p class="text-center"> No comments on this post </p>
           <% else %>
              <% @post.comments.each do |comment| %>
-                <p> <%= comment.author.Name %> : <%= comment.text %></p>
+                <div class="comment-text">
+                  <p class="my-auto"> <%= comment.author.Name %> : <%= comment.text %></p>
+                </div>
              <% end %>
+          <% end %>
+        </div>
+
+        <div>
+          <p class="h3 text-center my-2"> Create New Comment </p>
+          <%= form_with model: @comment, url: comments_path do |form| %>
+            <%= form.label :Text, "Input Your Post Content" %>
+            <%= form.text_area :Text, size: "60x10" %>
+            <%= form.submit "Create"%>
           <% end %>
         </div>
       </div>

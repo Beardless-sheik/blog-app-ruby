@@ -41,3 +41,14 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
+
+form {
+  display: grid;
+  row-gap: 10px;
+  margin: 30px;
+}
+
+.comment-text {
+  display: flex;
+  justify-content: space-between;
+}

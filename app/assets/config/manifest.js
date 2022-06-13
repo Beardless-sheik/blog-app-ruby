@@ -5,3 +5,5 @@
 // = link users/show.css
 // = link users/index.css
 // = link posts/show.css
+// = link posts/new.css
+
