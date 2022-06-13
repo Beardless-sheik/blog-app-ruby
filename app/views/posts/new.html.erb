@@ -1,0 +1,9 @@
+<h1 class="text-center my-2"> Create New Post</h1>
+
+<%= form_with(model: @post, url:user_posts_path) do |form| %>
+  <%= form.label :Title, "Input Your Post Title" %>
+  <%= form.text_field :Title %>
+  <%= form.label :Text, "Input Your Post Content" %>
+  <%= form.text_area :Text, size: "60x10" %>
+  <%= form.submit "Create"%>
+<% end %>
