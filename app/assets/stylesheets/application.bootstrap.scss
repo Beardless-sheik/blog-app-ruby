@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ a { 
+  text-decoration: none; 
+  color: black;
+}
+
  /* stylelint-disable */
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 /* stylelint-enable */
-
-a { 
-  text-decoration: none; 
-  color: black;
-}
