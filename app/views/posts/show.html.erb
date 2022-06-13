@@ -16,5 +16,14 @@
              <% end %>
           <% end %>
         </div>
+
+        <div>
+          <p class="h3 text-center my-2"> Create New Comment </p>
+          <%= form_with model: @comment, url: comments_path do |form| %>
+            <%= form.label :Text, "Input Your Post Content" %>
+            <%= form.text_area :Text, size: "60x10" %>
+            <%= form.submit "Create"%>
+          <% end %>
+        </div>
       </div>
     </section> 

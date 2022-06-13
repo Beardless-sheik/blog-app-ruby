@@ -25,7 +25,7 @@
       <% @posts.each do |post| %>
         <section class="container my-4 px-0">
           <div class="border post-container p-4">
-            <p> <%= link_to post.Title, {:action => 'show', :id => post.id} %> </p>
+            <p> <%= link_to post.Title, {:action => 'show', :post_id => post.id} %> </p>
             <p>
               <%= post.Text %> 
             </p>

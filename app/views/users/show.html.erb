@@ -29,7 +29,7 @@
     <% else %>
       <% @user.three_recent_posts.each do |post| %>
         <section class="container my-4 px-0">
-          <a href="<%= @user.id %>/posts/<%= post.id %>">
+          <a href="/posts/<%= post.id %>">
             <div class="border post-container p-4">
               <p> <%= post.Title %> </p>
               <p>
@@ -43,7 +43,7 @@
     <% end %>
 
     <div class="container see-more-post-container my-2">
-      <a href="<%= @user.id %>/posts" class="see-all-posts-button">
+      <a href= "<%= @user.id %>/posts" class="see-all-posts-button">
         <button type="button"  class="btn btn-lg"> See all posts </button>\
       </a>
     </div>
