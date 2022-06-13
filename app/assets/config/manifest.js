@@ -3,5 +3,5 @@
 //= require application
 // = link application.css
 // = link users/show.css
+// = link users/index.css
 // = link posts/show.css
-// = link main/index.css

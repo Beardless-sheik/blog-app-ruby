@@ -41,7 +41,9 @@ bundle install
 ### Run
 
 ```sh
-./bin/dev
+> npm run build:css (This build the scss style application packages)
+
+> bin/rails server (This starts the development server)
 ```
 
 ### Test
