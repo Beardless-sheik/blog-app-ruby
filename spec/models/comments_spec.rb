@@ -8,7 +8,7 @@ RSpec.describe Comment, type: :model do
 
     before { @comment.save }
 
-    it 'If Title is present, expect failure and non save' do
+    it 'If Title is not present, expect failure and non save' do
       @comment.text = nil
       expect(@comment).to_not be_valid
     end

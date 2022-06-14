@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @post = Post.new()
-    puts @post.Comments_Counter
   end
 
   def create
