@@ -17,9 +17,9 @@ RSpec.describe Post, type: :model do
     it 'If title characters are more than 250 characters, expect failure and non save' do
       @post.Title = `TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting
       TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting
-      TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting
-      TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting
-      TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting`
+      TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting
+      TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting
+      TestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTestingTesting`
       expect(@post).to_not be_valid
     end
 

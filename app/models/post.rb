@@ -9,7 +9,6 @@ class Post < ApplicationRecord
   validates_numericality_of :Comments_Counter, only_integer: true, greater_than_or_equal_to: 0
   validates_numericality_of :Likes_Counter, only_integer: true, greater_than_or_equal_to: 0
 
-
   after_save do
     author.increment!(:Posts_Counter)
   end

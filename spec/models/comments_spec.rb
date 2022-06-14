@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   describe 'Validation Tests For the Comment model' do
