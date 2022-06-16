@@ -13,12 +13,12 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'should include correct placeholder text' do
-      expect(response.body).to include('Comments: x, Likes: y')
+      expect(response.body).to include('Number of Posts')
     end
   end
 
   describe 'test GET /users/:id to #show' do
-    before(:example) { get user_post_path(1, 1) }
+    before(:example) { get user_path(1, 1) }
 
     it 'return correct response status' do
       expect(response).to have_http_status(:ok)
@@ -29,7 +29,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'return correct placeholder text' do
-      expect(response.body).to include('Username: Comment 1')
+      expect(response.body).to include('See all posts')
     end
   end
 end
