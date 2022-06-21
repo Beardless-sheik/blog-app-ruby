@@ -51,6 +51,9 @@ gem 'jsbundling-rails'
 # Needed to bundle css assets in Rails 7
 gem 'cssbundling-rails'
 
+# Devise is used for Authentication
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
