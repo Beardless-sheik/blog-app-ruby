@@ -6,4 +6,4 @@
 // = link users/index.css
 // = link posts/show.css
 // = link posts/new.css
-
+// = link sessions/new.css

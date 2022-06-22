@@ -6,10 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "sessions/new", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path %>
+      <%= link_to "Register", new_user_registration_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
