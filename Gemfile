@@ -54,6 +54,9 @@ gem 'cssbundling-rails'
 # Devise is used for Authentication
 gem 'devise'
 
+# CanCanCan is used for Authorization
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
