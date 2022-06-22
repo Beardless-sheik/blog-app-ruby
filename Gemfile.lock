@@ -141,13 +141,13 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.6-x64-mingw-ucrt)
+    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    pg (1.4.0-x64-mingw-ucrt)
+    pg (1.4.0)
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -247,8 +247,6 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.1)
-      tzinfo (>= 1.0.0)
     unicode-display_width (2.1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -270,7 +268,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -291,7 +289,6 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   turbo-rails
-  tzinfo-data
   web-console
   webdrivers
 
@@ -299,4 +296,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.15
+   2.3.13
