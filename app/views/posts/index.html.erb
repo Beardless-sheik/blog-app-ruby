@@ -29,7 +29,12 @@
             <p>
               <%= post.Text %> 
             </p>
-            <p class="comment-like-text text-end"> Comments: <%= post.Comments_Counter %>, Likes: <%= post.Likes_Counter %> </p>
+            <div>
+                <% if can? :destroy, post %> 
+                  <%= button_to "Delete Post", destroy_user_session_path, method: :delete %>
+                <% end %>
+                <p class="comment-like-text text-end"> Comments: <%= post.Comments_Counter %>, Likes: <%= post.Likes_Counter %> </p>
+            </div>
             <div class="border comment-container p-2">
               <% if post.five_recent_comments.blank? %>
                 <p> No comments on this post </p>
