@@ -16,7 +16,12 @@
           <% else %>
              <% @post.comments.each do |comment| %>
                 <div class="comment-text">
-                  <p class="my-auto"> <%= comment.author.Name %> : <%= comment.text %></p>
+                  <div class="comment-grid">
+                    <p class="my-auto"> <%= comment.author.Name %> : <%= comment.text %></p>
+                    <% if can? :destroy, comment %> 
+                      <%= button_to "Delete Comment", comment_path(id: comment.id), method: :delete  %>
+                    <% end %>
+                  </div>
                 </div>
              <% end %>
           <% end %>

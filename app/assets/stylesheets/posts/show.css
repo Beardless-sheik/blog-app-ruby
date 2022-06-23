@@ -45,10 +45,15 @@
 form {
   display: grid;
   row-gap: 10px;
-  margin: 30px;
+  margin: 15px;
 }
 
 .comment-text {
   display: flex;
   justify-content: space-between;
+}
+
+.comment-grid {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
 }

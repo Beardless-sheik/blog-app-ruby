@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   get '/', to: "users#index"
   
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :new, :create] 
+    resources :posts, only: [:index, :new, :create, :destroy], param: :post_id 
   end
 
   resources :posts, only: [:show], param: :post_id 
   resources :posts, only: [], param: :post_id do
     member do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create]
     end
   end
