@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:show], param: :post_id 
   resources :posts, only: [], param: :post_id do
     member do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create]
     end
   end
