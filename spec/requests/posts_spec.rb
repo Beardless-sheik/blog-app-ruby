@@ -1,17 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts show page', :type => ['request', 'feature'] do
+RSpec.describe 'Posts show page', type: %w[request feature] do
   before(:each) do
     User.destroy_all
-    @user = User.create(Name: 'Mwape', Photo: 'https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png', Bio: 'Developer from Zambia',
-                        email: 'test@email.com', password: 'password', confirmed_at: Time.now, role: 'admin')
-    @user1 = User.create(Name: 'Lungu', Photo: 'profile.jpg', Bio: 'Developer from SA', email: 'test1@email.com',
+    @user = User.create(Name: 'Mwape', Photo: 'photo 2',
+                        Bio: 'Developer from Zambia', email: 'test@email.com', password: 'password',
+                        confirmed_at: Time.now, role: 'admin')
+    @user1 = User.create(Name: 'Lungu',
+                         Photo: 'profile.jpg', Bio: 'Developer from SA', email: 'test1@email.com',
                          password: 'password', confirmed_at: Time.now)
     Post.create(Title: 'My title', Text: 'My text', AuthorId_id: @user.id)
     @comment = Comment.create(text: 'My first comment', author: User.first, post: Post.first)
     @comment = Comment.create(text: 'My second comment', author: User.first, post: Post.first)
     @like = Like.create(AuthorId_id: User.first.id, PostId_id: Post.first.id)
-    login_as(@user, :scope => :user)
+    login_as(@user, scope: :user)
   end
 
   describe 'test GET /users to #index' do
